@@ -4,16 +4,18 @@ import { useState } from "react";
 import DayView from "@/components/DayView";
 import RoomView from "@/components/RoomView";
 import PeopleView from "@/components/PeopleView";
+import CompaniesView from "@/components/CompaniesView";
 import StatsBar from "@/components/StatsBar";
-import { CalendarDays, MapPin, Users } from "lucide-react";
+import { Building2, CalendarDays, MapPin, Users } from "lucide-react";
 import clsx from "clsx";
 
-type View = "day" | "room" | "people";
+type View = "day" | "room" | "people" | "companies";
 
 const tabs: { id: View; label: string; icon: React.ElementType }[] = [
   { id: "day", label: "By Day", icon: CalendarDays },
   { id: "room", label: "By Room", icon: MapPin },
   { id: "people", label: "By Person", icon: Users },
+  { id: "companies", label: "Companies", icon: Building2 },
 ];
 
 export default function Home() {
@@ -32,13 +34,13 @@ export default function Home() {
                 </div>
                 <div>
                   <h1 className="text-2xl font-bold text-gray-900">NAB 2026</h1>
-                  <p className="text-sm text-gray-500">TwelveLabs Team Schedule &middot; April 19–21, Las Vegas</p>
+                  <p className="text-sm text-gray-500">TwelveLabs Team Schedule &middot; April 19–22, Las Vegas</p>
                 </div>
               </div>
             </div>
             <div className="hidden sm:block text-right">
               <p className="text-xs text-gray-400">Last updated</p>
-              <p className="text-sm text-gray-600 font-medium">Mar 16, 4:45 PM PT</p>
+              <p className="text-sm text-gray-600 font-medium">Mar 19, 10:00 AM PT</p>
             </div>
           </div>
         </div>
@@ -72,6 +74,7 @@ export default function Home() {
           {view === "day" && <DayView />}
           {view === "room" && <RoomView />}
           {view === "people" && <PeopleView />}
+          {view === "companies" && <CompaniesView />}
         </div>
       </main>
     </div>
