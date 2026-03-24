@@ -39,8 +39,8 @@ export default function Home() {
               </div>
             </div>
             <div className="hidden sm:block text-right">
-              <p className="text-xs text-gray-400">Last updated</p>
-              <p className="text-sm text-gray-600 font-medium">Mar 19, 10:00 AM PT</p>
+              <p className="text-xs text-gray-400">Synced from Google Calendar</p>
+              <p className="text-sm text-gray-600 font-medium">Mar 24, 2026</p>
             </div>
           </div>
         </div>

@@ -1,14 +1,15 @@
 "use client";
 
 import { Meeting } from "@/lib/data";
-import { Clock, MapPin, Users, Building2, Mic2, UtensilsCrossed, PartyPopper } from "lucide-react";
+import { Clock, MapPin, Users, Building2, Mic2, UtensilsCrossed, PartyPopper, Lock } from "lucide-react";
 import clsx from "clsx";
 
 const typeConfig: Record<Meeting["type"], { bg: string; border: string; badge: string; badgeText: string; icon: React.ElementType }> = {
-  meeting: { bg: "bg-white", border: "border-blue-200", badge: "bg-blue-50 text-blue-700", badgeText: "Meeting", icon: Building2 },
-  panel: { bg: "bg-white", border: "border-violet-200", badge: "bg-violet-50 text-violet-700", badgeText: "Panel / Stage", icon: Mic2 },
-  dinner: { bg: "bg-white", border: "border-amber-200", badge: "bg-amber-50 text-amber-700", badgeText: "Dinner", icon: UtensilsCrossed },
+  meeting: { bg: "bg-white", border: "border-blue-200", badge: "bg-blue-50 text-blue-700", badgeText: "Customer Meeting", icon: Building2 },
+  panel: { bg: "bg-white", border: "border-violet-200", badge: "bg-violet-50 text-violet-700", badgeText: "Panel / Speaking", icon: Mic2 },
+  dinner: { bg: "bg-white", border: "border-amber-200", badge: "bg-amber-50 text-amber-700", badgeText: "Customer Dinner", icon: UtensilsCrossed },
   event: { bg: "bg-white", border: "border-emerald-200", badge: "bg-emerald-50 text-emerald-700", badgeText: "Event", icon: PartyPopper },
+  internal: { bg: "bg-gray-50", border: "border-gray-300", badge: "bg-gray-100 text-gray-600", badgeText: "Internal", icon: Lock },
 };
 
 function emailToName(email: string): string {
@@ -76,9 +77,9 @@ export default function MeetingCard({ meeting, showDate }: { meeting: Meeting; s
             <div className="flex items-start gap-1.5">
               <Users className="w-3.5 h-3.5 mt-0.5 shrink-0 text-gray-400" />
               <div className="flex flex-wrap gap-1">
-                {meeting.externalAttendees.map((email) => (
-                  <span key={email} className="inline-flex items-center text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">
-                    {emailToName(email)}
+                {meeting.externalAttendees.map((contact) => (
+                  <span key={contact} className="inline-flex items-center text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">
+                    {contact.includes("@") ? emailToName(contact) : contact}
                   </span>
                 ))}
               </div>
