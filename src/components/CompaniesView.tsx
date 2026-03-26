@@ -25,6 +25,7 @@ function simplifyLocation(location: string): string {
 
 const typeColors: Record<string, string> = {
   meeting: "bg-blue-50 border-blue-100",
+  partner: "bg-teal-50 border-teal-100",
   panel: "bg-violet-50 border-violet-100",
 };
 

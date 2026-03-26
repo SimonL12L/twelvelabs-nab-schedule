@@ -1,11 +1,12 @@
 "use client";
 
 import { Meeting } from "@/lib/data";
-import { Clock, MapPin, Users, Building2, Mic2, UtensilsCrossed, PartyPopper, Lock } from "lucide-react";
+import { Clock, MapPin, Users, Building2, Mic2, UtensilsCrossed, PartyPopper, Lock, Handshake } from "lucide-react";
 import clsx from "clsx";
 
 const typeConfig: Record<Meeting["type"], { bg: string; border: string; badge: string; badgeText: string; icon: React.ElementType }> = {
   meeting: { bg: "bg-white", border: "border-blue-200", badge: "bg-blue-50 text-blue-700", badgeText: "Customer Meeting", icon: Building2 },
+  partner: { bg: "bg-white", border: "border-teal-200", badge: "bg-teal-50 text-teal-700", badgeText: "Partner Meeting", icon: Handshake },
   panel: { bg: "bg-white", border: "border-violet-200", badge: "bg-violet-50 text-violet-700", badgeText: "Panel / Speaking", icon: Mic2 },
   dinner: { bg: "bg-white", border: "border-amber-200", badge: "bg-amber-50 text-amber-700", badgeText: "Customer Dinner", icon: UtensilsCrossed },
   event: { bg: "bg-white", border: "border-emerald-200", badge: "bg-emerald-50 text-emerald-700", badgeText: "Event", icon: PartyPopper },

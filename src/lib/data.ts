@@ -1,4 +1,4 @@
-export type MeetingType = "meeting" | "panel" | "dinner" | "event" | "internal";
+export type MeetingType = "meeting" | "partner" | "panel" | "dinner" | "event" | "internal";
 
 export interface Meeting {
   id: string;
@@ -79,7 +79,7 @@ const rawMeetings: Array<{
     internal: "emily.kurze@twelvelabs.io\nallyson.gottlieb@twelvelabs.io",
     external: "hugh.calveley@autodesk.com",
     location: "TwelveLabs Booth #W1923 – Partner Theater",
-    date: "April 19, 2026", time: "11:00 AM", type: "panel",
+    date: "April 19, 2026", time: "11:00 AM", type: "partner",
   },
   {
     company: "Lunch at Fontainebleau",
@@ -127,7 +127,7 @@ const rawMeetings: Array<{
     internal: "emily.kurze@twelvelabs.io\nallyson.gottlieb@twelvelabs.io",
     external: "chris@trackit.io\nchris.koh@trackit.io\nbrad@trackit.io",
     location: "TwelveLabs Booth #W1923 – Partner Theater",
-    date: "April 19, 2026", time: "2:00 PM", type: "panel",
+    date: "April 19, 2026", time: "2:00 PM", type: "partner",
   },
   {
     company: "Vubiquity",
@@ -148,7 +148,7 @@ const rawMeetings: Array<{
     internal: "emily.kurze@twelvelabs.io\nallyson.gottlieb@twelvelabs.io",
     external: "hugh.calveley@autodesk.com",
     location: "TwelveLabs Booth #W1923 – Partner Theater",
-    date: "April 19, 2026", time: "3:00 PM", type: "panel",
+    date: "April 19, 2026", time: "3:00 PM", type: "partner",
   },
   {
     company: "M&E Stage – Soyoung Speaking",
@@ -176,7 +176,7 @@ const rawMeetings: Array<{
     internal: "yoon.kim@twelvelabs.io\nrobert.mohr@twelvelabs.io",
     external: "jin@imaizumi.net",
     location: "TwelveLabs Booth #W1923 – Partner Theater",
-    date: "April 19, 2026", time: "4:30 PM", type: "meeting",
+    date: "April 19, 2026", time: "4:30 PM", type: "partner",
   },
   {
     company: "TwelveLabs Happy Hour / Rodeo Launch",
@@ -244,7 +244,7 @@ const rawMeetings: Array<{
     internal: "ethan.heerwagen@twelvelabs.io\nkc@twelvelabs.io",
     external: "dave.wilson@catapult.com\nlee.cadman@catapult.com",
     location: "TwelveLabs Booth #W1923 – Partner Theater",
-    date: "April 20, 2026", time: "11:00 AM", type: "meeting",
+    date: "April 20, 2026", time: "11:00 AM", type: "partner",
   },
   {
     company: "Vidispine",
@@ -292,7 +292,7 @@ const rawMeetings: Array<{
     internal: "emily.kurze@twelvelabs.io\nallyson.gottlieb@twelvelabs.io",
     external: "hugh.calveley@autodesk.com",
     location: "TwelveLabs Booth #W1923 – Partner Theater",
-    date: "April 20, 2026", time: "12:00 PM", type: "panel",
+    date: "April 20, 2026", time: "12:00 PM", type: "partner",
   },
   {
     company: "SnapStream",
@@ -320,7 +320,7 @@ const rawMeetings: Array<{
     internal: "emily.kurze@twelvelabs.io\nallyson.gottlieb@twelvelabs.io",
     external: "chris@trackit.io\nchris.koh@trackit.io\nbrad@trackit.io",
     location: "TwelveLabs Booth #W1923 – Partner Theater",
-    date: "April 20, 2026", time: "1:00 PM", type: "panel",
+    date: "April 20, 2026", time: "1:00 PM", type: "partner",
   },
   {
     company: "Lionsgate",
@@ -334,7 +334,7 @@ const rawMeetings: Array<{
     internal: "emily.kurze@twelvelabs.io\nallyson.gottlieb@twelvelabs.io",
     external: "sean.lynch@quickplay.com\naj.joiner@quickplay.com",
     location: "TwelveLabs Booth #W1923 – Partner Theater",
-    date: "April 20, 2026", time: "2:00 PM", type: "panel",
+    date: "April 20, 2026", time: "2:00 PM", type: "partner",
   },
   {
     company: "AWS + FOX",
@@ -362,7 +362,7 @@ const rawMeetings: Array<{
     internal: "emily.kurze@twelvelabs.io\nallyson.gottlieb@twelvelabs.io",
     external: "hugh.calveley@autodesk.com",
     location: "TwelveLabs Booth #W1923 – Partner Theater",
-    date: "April 20, 2026", time: "3:00 PM", type: "panel",
+    date: "April 20, 2026", time: "3:00 PM", type: "partner",
   },
   {
     company: "Apple",
@@ -456,14 +456,14 @@ const rawMeetings: Array<{
     internal: "emily.kurze@twelvelabs.io\nallyson.gottlieb@twelvelabs.io",
     external: "sean.lynch@quickplay.com\naj.joiner@quickplay.com",
     location: "TwelveLabs Booth #W1923 – Partner Theater",
-    date: "April 21, 2026", time: "10:00 AM", type: "panel",
+    date: "April 21, 2026", time: "10:00 AM", type: "partner",
   },
   {
     company: "Autodesk",
     internal: "emily.kurze@twelvelabs.io\nallyson.gottlieb@twelvelabs.io",
     external: "hugh.calveley@autodesk.com",
     location: "TwelveLabs Booth #W1923 – Partner Theater",
-    date: "April 21, 2026", time: "11:00 AM", type: "panel",
+    date: "April 21, 2026", time: "11:00 AM", type: "partner",
   },
   {
     company: "Protege – M&E Stage Case Study (Soyoung)",
@@ -525,7 +525,7 @@ const rawMeetings: Array<{
     internal: "emily.kurze@twelvelabs.io\nallyson.gottlieb@twelvelabs.io",
     external: "hugh.calveley@autodesk.com",
     location: "TwelveLabs Booth #W1923 – Partner Theater",
-    date: "April 21, 2026", time: "3:00 PM", type: "panel",
+    date: "April 21, 2026", time: "3:00 PM", type: "partner",
   },
   {
     company: "Lionsgate (Drinks)",
@@ -646,10 +646,10 @@ export interface Company {
 }
 
 export function getCompanies(filter: MeetingType | "all" = "all"): Company[] {
-  // For companies tab: include meetings + panels; exclude internal, event, dinner
+  // For companies tab: include meetings + partner meetings + panels; exclude internal, event, dinner
   const relevantTypes: MeetingType[] =
     filter === "all"
-      ? ["meeting", "panel"]
+      ? ["meeting", "partner", "panel"]
       : ["dinner", "event", "internal"].includes(filter)
       ? []
       : [filter as MeetingType];
