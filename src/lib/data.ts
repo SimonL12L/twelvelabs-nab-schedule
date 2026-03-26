@@ -646,11 +646,11 @@ export interface Company {
 }
 
 export function getCompanies(filter: MeetingType | "all" = "all"): Company[] {
-  // For companies tab: include meetings + partner meetings + panels; exclude internal, event, dinner
+  // For companies tab: include meetings + partner meetings; exclude panels, internal, event, dinner
   const relevantTypes: MeetingType[] =
     filter === "all"
-      ? ["meeting", "partner", "panel"]
-      : ["dinner", "event", "internal"].includes(filter)
+      ? ["meeting", "partner"]
+      : ["dinner", "event", "internal", "panel"].includes(filter)
       ? []
       : [filter as MeetingType];
 
