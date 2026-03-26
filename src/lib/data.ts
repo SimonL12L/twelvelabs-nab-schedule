@@ -68,6 +68,13 @@ const rawMeetings: Array<{
     date: "April 19, 2026", time: "11:00 AM", type: "meeting",
   },
   {
+    company: "EIKON Group",
+    internal: "amie.araghi@twelvelabs.io\nbrice.penven@twelvelabs.io",
+    external: "piers.godden@eikon.group",
+    location: "TwelveLabs Booth #W1923 – NAB Booth 2",
+    date: "April 19, 2026", time: "11:00 AM", type: "meeting",
+  },
+  {
     company: "Autodesk",
     internal: "emily.kurze@twelvelabs.io\nallyson.gottlieb@twelvelabs.io",
     external: "hugh.calveley@autodesk.com",
@@ -82,7 +89,7 @@ const rawMeetings: Array<{
   },
   {
     company: "MLS (HOLD)",
-    internal: "brice.penven@twelvelabs.io\nallie.bernacchi@twelvelabs.io\nchad.rounsavall@twelvelabs.io",
+    internal: "brice.penven@twelvelabs.io\nallie.bernacchi@twelvelabs.io\nchad.rounsavall@twelvelabs.io\njesse.white@twelvelabs.io",
     external: "keith.agabob@mlssoccer.com",
     location: "TwelveLabs Booth #W1923 – NAB Booth 1",
     date: "April 19, 2026", time: "12:00 PM", type: "meeting",
@@ -241,7 +248,7 @@ const rawMeetings: Array<{
   },
   {
     company: "Vidispine",
-    internal: "john.reigart@twelvelabs.io\nemily.kurze@twelvelabs.io\ndanny.nicolopoulos@twelvelabs.io\nbrice.penven@twelvelabs.io\nbelinda.merritt@twelvelabs.io\nchad.rounsavall@twelvelabs.io",
+    internal: "john.reigart@twelvelabs.io\nemily.kurze@twelvelabs.io\ndanny.nicolopoulos@twelvelabs.io\nbrice.penven@twelvelabs.io\nbelinda.merritt@twelvelabs.io\nchad.rounsavall@twelvelabs.io\njesse.white@twelvelabs.io",
     external: "annika.kimpel@vidispine.com\nexhibition@vidispine.com\nkarsten.schragmann@vidispine.com",
     location: "Vidispine Booth #W1643",
     date: "April 20, 2026", time: "11:00 AM", type: "meeting",
@@ -267,8 +274,8 @@ const rawMeetings: Array<{
     date: "April 20, 2026", time: "11:30 AM", type: "event",
   },
   {
-    company: "NFL",
-    internal: "chad.rounsavall@twelvelabs.io\nethan.heerwagen@twelvelabs.io\nsimon@twelvelabs.io",
+    company: "NFL Films",
+    internal: "chad.rounsavall@twelvelabs.io\nethan.heerwagen@twelvelabs.io\nsimon@twelvelabs.io\njesse.white@twelvelabs.io",
     external: "",
     location: "TwelveLabs Booth #W1923 – NAB Booth 2",
     date: "April 20, 2026", time: "12:00 PM", type: "meeting",
@@ -345,7 +352,7 @@ const rawMeetings: Array<{
   },
   {
     company: "NASCAR",
-    internal: "jae@twelvelabs.io\ndanger@twelvelabs.io\ndavid.morel@twelvelabs.io",
+    internal: "jae@twelvelabs.io\ndanger@twelvelabs.io\ndavid.morel@twelvelabs.io\njesse.white@twelvelabs.io",
     external: "pcarroll@nascar.com",
     location: "TwelveLabs Booth #W1923 – NAB Booth 2",
     date: "April 20, 2026", time: "3:00 PM", type: "meeting",
@@ -377,6 +384,20 @@ const rawMeetings: Array<{
     external: "michael.rivera@qvest.com",
     location: "TwelveLabs Booth #W1923 – NAB Booth 2",
     date: "April 20, 2026", time: "4:00 PM", type: "meeting",
+  },
+  {
+    company: "Arrk Media",
+    internal: "dan.germain@twelvelabs.io\ndavid.morel@twelvelabs.io",
+    external: "phil.hodgetts@arrkmedia.com",
+    location: "TwelveLabs Booth #W1923 – NAB Booth 1",
+    date: "April 20, 2026", time: "4:00 PM", type: "meeting",
+  },
+  {
+    company: "NBA",
+    internal: "ethan.heerwagen@twelvelabs.io\njesse.white@twelvelabs.io\nadrienne@twelvelabs.io\nchad.rounsavall@twelvelabs.io\nsimon.lecointe@twelvelabs.io",
+    external: "vcerejo@nba.com",
+    location: "TwelveLabs Booth #W1923 – NAB Booth 1",
+    date: "April 20, 2026", time: "4:30 PM", type: "meeting",
   },
   {
     company: "Bi-Weekly APAC Pipeline Review",
@@ -467,7 +488,7 @@ const rawMeetings: Array<{
   {
     company: "MEDIAGENIX",
     internal: "amie.araghi@twelvelabs.io\nbrice.penven@twelvelabs.io",
-    external: "emmanuel.muller@mediagenix.tv",
+    external: "emmanuel.muller@mediagenix.tv\nivan.verbesselt@mediagenix.tv",
     location: "TwelveLabs Booth #W1923 – NAB Booth 1",
     date: "April 21, 2026", time: "1:00 PM", type: "meeting",
   },
@@ -553,24 +574,10 @@ const rawMeetings: Array<{
     date: "April 22, 2026", time: "7:45 AM", type: "event",
   },
   {
-    company: "GTM Onboarding: GTM Overview",
-    internal: "adrienne@twelvelabs.io",
-    external: "",
-    location: "",
-    date: "April 22, 2026", time: "9:00 AM", type: "internal",
-  },
-  {
     company: "NAB Expo",
     internal: "", external: "",
     location: "Las Vegas Convention Center",
     date: "April 22, 2026", time: "9:00 AM", type: "event",
-  },
-  {
-    company: "GTM Onboarding: Revenue Team Overview",
-    internal: "bobby@twelvelabs.io",
-    external: "",
-    location: "",
-    date: "April 22, 2026", time: "10:00 AM", type: "internal",
   },
   {
     company: "Lunch at Fontainebleau",
