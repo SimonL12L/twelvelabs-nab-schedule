@@ -400,13 +400,6 @@ const rawMeetings: Array<{
     date: "April 20, 2026", time: "4:30 PM", type: "meeting",
   },
   {
-    company: "Bi-Weekly APAC Pipeline Review",
-    internal: "soyoung@twelvelabs.io\ndongwoon.song@twelvelabs.io\ndave@twelvelabs.io\njennifer.lee@twelvelabs.io\ntravis@twelvelabs.io\nhyemin.lee@twelvelabs.io\nmaninder@twelvelabs.io\nbongmu.lee@twelvelabs.io\nandy.sohn@twelvelabs.io\nminwoo.lee@twelvelabs.io\ndanny@twelvelabs.io\nrobert.mohr@twelvelabs.io\nsimon.lecointe@twelvelabs.io",
-    external: "",
-    location: "",
-    date: "April 20, 2026", time: "4:00 PM", type: "internal",
-  },
-  {
     company: "Bernie Gershon VIP Exec Dinner",
     internal: "soyoung@twelvelabs.io\nmaddi.santos@twelvelabs.io\nbobby@twelvelabs.io",
     external: "",
