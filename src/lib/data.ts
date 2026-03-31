@@ -62,7 +62,7 @@ const rawMeetings: Array<{
   },
   {
     company: "WBD (Mark Nakano)",
-    internal: "danger@twelvelabs.io\njordan.woods@twelvelabs.io\nallie.bernacchi@twelvelabs.io",
+    internal: "dan.germain@twelvelabs.io\njordan.woods@twelvelabs.io\nallie.bernacchi@twelvelabs.io",
     external: "mark.nakano@wbd.com",
     location: "TwelveLabs Booth #W1923 – NAB Booth 1",
     date: "April 19, 2026", time: "11:00 AM", type: "meeting",
@@ -96,10 +96,17 @@ const rawMeetings: Array<{
   },
   {
     company: "Disney",
-    internal: "danger@twelvelabs.io\ndavid.morel@twelvelabs.io\njuddy.talt@twelvelabs.io",
+    internal: "dan.germain@twelvelabs.io\ndavid.morel@twelvelabs.io\njuddy.talt@twelvelabs.io",
     external: "rosario.arbeleche@disney.com\nkieren.portley@disney.com",
     location: "TwelveLabs Booth #W1923 – NAB Booth 2",
     date: "April 19, 2026", time: "12:00 PM", type: "meeting",
+  },
+  {
+    company: "Scoreplay",
+    internal: "emily.kurze@twelvelabs.io\nallyson.gottlieb@twelvelabs.io",
+    external: "josh@scoreplay.io",
+    location: "TwelveLabs Booth #W1923 – Partner Theater",
+    date: "April 19, 2026", time: "12:00 PM", type: "partner",
   },
   {
     company: "Monks",
@@ -114,6 +121,13 @@ const rawMeetings: Array<{
     external: "jon.roberts@itn.co.uk\nhannah.taylor@itn.co.uk",
     location: "TwelveLabs Booth #W1923 – NAB Booth 1",
     date: "April 19, 2026", time: "1:00 PM", type: "meeting",
+  },
+  {
+    company: "Overcast HQ",
+    internal: "emily.kurze@twelvelabs.io\nallyson.gottlieb@twelvelabs.io",
+    external: "georgek@overcasthq.com",
+    location: "TwelveLabs Booth #W1923 – Partner Theater",
+    date: "April 19, 2026", time: "1:00 PM", type: "partner",
   },
   {
     company: "South Park",
@@ -131,7 +145,7 @@ const rawMeetings: Array<{
   },
   {
     company: "Vubiquity",
-    internal: "danger@twelvelabs.io\nbobby@twelvelabs.io\ndavid.morel@twelvelabs.io",
+    internal: "dan.germain@twelvelabs.io\nbobby@twelvelabs.io\ndavid.morel@twelvelabs.io",
     external: "nfrink@vubiquity.com\njancheta-tilley@vubiquity.com",
     location: "TwelveLabs Booth #W1923 – NAB Booth 1",
     date: "April 19, 2026", time: "3:00 PM", type: "meeting",
@@ -172,11 +186,25 @@ const rawMeetings: Array<{
     date: "April 19, 2026", time: "4:00 PM", type: "meeting",
   },
   {
+    company: "Cinesys",
+    internal: "emily.kurze@twelvelabs.io\nallyson.gottlieb@twelvelabs.io",
+    external: "matt@cinesys.io",
+    location: "TwelveLabs Booth #W1923 – Partner Theater",
+    date: "April 19, 2026", time: "4:00 PM", type: "partner",
+  },
+  {
     company: "Imagine Consulting",
     internal: "yoon.kim@twelvelabs.io\nrobert.mohr@twelvelabs.io",
     external: "jin@imaizumi.net",
     location: "TwelveLabs Booth #W1923 – Partner Theater",
     date: "April 19, 2026", time: "4:30 PM", type: "partner",
+  },
+  {
+    company: "Wizeline",
+    internal: "emily.kurze@twelvelabs.io\nallyson.gottlieb@twelvelabs.io",
+    external: "gino.bautista@wizeline.com\njames.roe@wizeline.com\nandy@wizeline.com\nleslie.medina@wizeline.com\nyara.coronado@wizeline.com\neduardo.sunol@wizeline.com\nfausta.ballesteros@wizeline.com",
+    location: "TwelveLabs Booth #W1923 – Partner Theater",
+    date: "April 19, 2026", time: "5:00 PM", type: "partner",
   },
   {
     company: "TwelveLabs Happy Hour / Rodeo Launch",
@@ -210,6 +238,13 @@ const rawMeetings: Array<{
     external: "lhg@cbsnews.com\najg@cbsnews.com\ndaganr@cbsnews.com",
     location: "TwelveLabs Booth #W1923 – NAB Booth 1",
     date: "April 20, 2026", time: "9:00 AM", type: "meeting",
+  },
+  {
+    company: "M&E Stage Interview – Soyoung",
+    internal: "soyoung@twelvelabs.io",
+    external: "",
+    location: "M&E Stage, NAB Show",
+    date: "April 20, 2026", time: "9:30 AM", type: "panel",
   },
   {
     company: "Graham Media",
@@ -288,6 +323,13 @@ const rawMeetings: Array<{
     date: "April 20, 2026", time: "12:00 PM", type: "meeting",
   },
   {
+    company: "NBCU (Belinda HOLD)",
+    internal: "belinda.merritt@twelvelabs.io",
+    external: "",
+    location: "Opal Boardroom – Floor 2, Fontainebleau",
+    date: "April 20, 2026", time: "12:00 PM", type: "meeting",
+  },
+  {
     company: "Autodesk",
     internal: "emily.kurze@twelvelabs.io\nallyson.gottlieb@twelvelabs.io",
     external: "hugh.calveley@autodesk.com",
@@ -351,9 +393,16 @@ const rawMeetings: Array<{
     date: "April 20, 2026", time: "2:30 PM", type: "meeting",
   },
   {
+    company: "Streaming Summit Panel (Bobby)",
+    internal: "maddi.santos@twelvelabs.io\nbobby@twelvelabs.io\njae@twelvelabs.io\nyoon.kim@twelvelabs.io",
+    external: "",
+    location: "NAB Show – W209-W210",
+    date: "April 20, 2026", time: "2:45 PM", type: "panel",
+  },
+  {
     company: "NASCAR",
-    internal: "jae@twelvelabs.io\ndanger@twelvelabs.io\ndavid.morel@twelvelabs.io\njesse.white@twelvelabs.io",
-    external: "pcarroll@nascar.com",
+    internal: "jae@twelvelabs.io\ndan.germain@twelvelabs.io\ndavid.morel@twelvelabs.io\njesse.white@twelvelabs.io",
+    external: "pcarroll@nascar.com\nfieldwes@amazon.com",
     location: "TwelveLabs Booth #W1923 – NAB Booth 2",
     date: "April 20, 2026", time: "3:00 PM", type: "meeting",
   },
@@ -393,11 +442,32 @@ const rawMeetings: Array<{
     date: "April 20, 2026", time: "4:00 PM", type: "meeting",
   },
   {
+    company: "Scoreplay",
+    internal: "emily.kurze@twelvelabs.io\nallyson.gottlieb@twelvelabs.io",
+    external: "josh@scoreplay.io",
+    location: "TwelveLabs Booth #W1923 – Partner Theater",
+    date: "April 20, 2026", time: "4:00 PM", type: "partner",
+  },
+  {
     company: "NBA",
-    internal: "ethan.heerwagen@twelvelabs.io\njesse.white@twelvelabs.io\nadrienne@twelvelabs.io\nchad.rounsavall@twelvelabs.io\nsimon.lecointe@twelvelabs.io",
+    internal: "ethan.heerwagen@twelvelabs.io\njesse.white@twelvelabs.io\nadrienne@twelvelabs.io\nchad.rounsavall@twelvelabs.io\nsimon.lecointe@twelvelabs.io\nkc@twelvelabs.io",
     external: "vcerejo@nba.com",
     location: "TwelveLabs Booth #W1923 – NAB Booth 1",
     date: "April 20, 2026", time: "4:30 PM", type: "meeting",
+  },
+  {
+    company: "Skywalker Sound",
+    internal: "amie.araghi@twelvelabs.io",
+    external: "stevem@skysound.com",
+    location: "TwelveLabs Booth #W1923 – NAB Booth 2",
+    date: "April 20, 2026", time: "5:00 PM", type: "meeting",
+  },
+  {
+    company: "Aaron Sloman",
+    internal: "emily.kurze@twelvelabs.io\nallyson.gottlieb@twelvelabs.io",
+    external: "Aaron Sloman",
+    location: "TwelveLabs Booth #W1923 – Partner Theater",
+    date: "April 20, 2026", time: "5:00 PM", type: "partner",
   },
   {
     company: "Bernie Gershon VIP Exec Dinner",
@@ -438,8 +508,22 @@ const rawMeetings: Array<{
     date: "April 21, 2026", time: "9:00 AM", type: "event",
   },
   {
+    company: "IMAX",
+    internal: "dan.germain@twelvelabs.io\njuddy.talt@twelvelabs.io\ndavid.morel@twelvelabs.io",
+    external: "jdunant@imax.com\nbmarkoe@imax.com",
+    location: "TwelveLabs Booth #W1923 – NAB Booth 2",
+    date: "April 21, 2026", time: "9:00 AM", type: "meeting",
+  },
+  {
+    company: "TOTALTEL",
+    internal: "amie.araghi@twelvelabs.io",
+    external: "Nicolas Miranda Thraves",
+    location: "TwelveLabs Booth #W1923 – NAB Booth 1",
+    date: "April 21, 2026", time: "9:00 AM", type: "meeting",
+  },
+  {
     company: "Riot Games",
-    internal: "danger@twelvelabs.io\nsimon.lecointe@twelvelabs.io",
+    internal: "dan.germain@twelvelabs.io\nsimon.lecointe@twelvelabs.io",
     external: "jschoen@riotgames.com\nkendall.ginsbach@riotgames.com",
     location: "TwelveLabs Booth #W1923 – NAB Booth 2",
     date: "April 21, 2026", time: "10:00 AM", type: "meeting",
@@ -457,6 +541,20 @@ const rawMeetings: Array<{
     external: "sean.lynch@quickplay.com\naj.joiner@quickplay.com",
     location: "TwelveLabs Booth #W1923 – Partner Theater",
     date: "April 21, 2026", time: "10:00 AM", type: "partner",
+  },
+  {
+    company: "Fox",
+    internal: "jordan.woods@twelvelabs.io\nallie.bernacchi@twelvelabs.io\nchad.rounsavall@twelvelabs.io",
+    external: "justin.briars@fox.com\nkatie.fellion@fox.com\ndeyner.seals@fox.com\nlauren.henne@fox.com\npayton.list@fox.com",
+    location: "Opal Boardroom – Floor 2, Fontainebleau",
+    date: "April 21, 2026", time: "11:00 AM", type: "meeting",
+  },
+  {
+    company: "Sony Music (HOLD)",
+    internal: "jae@twelvelabs.io\ndan.germain@twelvelabs.io\nbrice.penven@twelvelabs.io",
+    external: "",
+    location: "TwelveLabs Booth #W1923 – NAB Booth 1",
+    date: "April 21, 2026", time: "11:00 AM", type: "meeting",
   },
   {
     company: "Autodesk",
@@ -479,6 +577,13 @@ const rawMeetings: Array<{
     date: "April 21, 2026", time: "11:30 AM", type: "event",
   },
   {
+    company: "F1 (HOLD)",
+    internal: "jesse.white@twelvelabs.io\nbrice.penven@twelvelabs.io\nallie.bernacchi@twelvelabs.io",
+    external: "",
+    location: "TwelveLabs Booth #W1923 – NAB Booth 1",
+    date: "April 21, 2026", time: "12:00 PM", type: "meeting",
+  },
+  {
     company: "MEDIAGENIX",
     internal: "amie.araghi@twelvelabs.io\nbrice.penven@twelvelabs.io",
     external: "emmanuel.muller@mediagenix.tv\nivan.verbesselt@mediagenix.tv",
@@ -487,7 +592,7 @@ const rawMeetings: Array<{
   },
   {
     company: "Banijay",
-    internal: "dan.germain@twelvelabs.io\njuddy.talt@twelvelabs.io\nyoon.kim@twelvelabs.io\ndavid.morel@twelvelabs.io",
+    internal: "dan.germain@twelvelabs.io\njuddy.talt@twelvelabs.io\nyoon.kim@twelvelabs.io\ndavid.morel@twelvelabs.io\nsoyoung@twelvelabs.io",
     external: "donna.mulvey-jones@banijayuk.com\ngraysonm@amazon.co.uk",
     location: "TwelveLabs Booth #W1923 – NAB Booth 2",
     date: "April 21, 2026", time: "1:00 PM", type: "meeting",
@@ -515,7 +620,7 @@ const rawMeetings: Array<{
   },
   {
     company: "Sardius",
-    internal: "jae@twelvelabs.io\ndanger@twelvelabs.io\nbrice.penven@twelvelabs.io",
+    internal: "jae@twelvelabs.io\ndan.germain@twelvelabs.io\nbrice.penven@twelvelabs.io",
     external: "mari@sardius.media\nAri Burt <ari@sardius.media>\nJason Shore <jason@sardius.media>",
     location: "TwelveLabs Booth #W1923 – NAB Booth 1",
     date: "April 21, 2026", time: "3:00 PM", type: "meeting",
@@ -528,10 +633,24 @@ const rawMeetings: Array<{
     date: "April 21, 2026", time: "3:00 PM", type: "partner",
   },
   {
+    company: "Cinesys",
+    internal: "emily.kurze@twelvelabs.io\nallyson.gottlieb@twelvelabs.io",
+    external: "matt@cinesys.io",
+    location: "TwelveLabs Booth #W1923 – Partner Theater",
+    date: "April 21, 2026", time: "4:00 PM", type: "partner",
+  },
+  {
     company: "Lionsgate (Drinks)",
     internal: "soyoung@twelvelabs.io\nallie.bernacchi@twelvelabs.io\nchad.rounsavall@twelvelabs.io",
     external: "",
     location: "The Vault at Bellagio",
+    date: "April 21, 2026", time: "5:00 PM", type: "meeting",
+  },
+  {
+    company: "TacGas (HOLD)",
+    internal: "dan.germain@twelvelabs.io\njordan.woods@twelvelabs.io\nallie.shelton@twelvelabs.io",
+    external: "",
+    location: "TwelveLabs Booth #W1923 – NAB Booth 1",
     date: "April 21, 2026", time: "5:00 PM", type: "meeting",
   },
   {
@@ -542,15 +661,21 @@ const rawMeetings: Array<{
     date: "April 21, 2026", time: "6:00 PM", type: "event",
   },
   {
+    company: "Customer Dinner – TL / VAST / Monks",
+    internal: "", external: "",
+    location: "Las Vegas, NV",
+    date: "April 21, 2026", time: "6:30 PM", type: "dinner",
+  },
+  {
     company: "Customer Dinner – Komodo",
     internal: "", external: "",
     location: "Komodo, Las Vegas",
     date: "April 21, 2026", time: "7:00 PM", type: "dinner",
   },
   {
-    company: "Customer Dinner – Carbone Riviera",
+    company: "Customer Dinner – Cipriani",
     internal: "", external: "",
-    location: "Carbone Riviera, Las Vegas",
+    location: "Cipriani, Las Vegas",
     date: "April 21, 2026", time: "7:00 PM", type: "dinner",
   },
   {
