@@ -113,7 +113,7 @@ const rawMeetings: Array<{
     internal: "john.reigart@twelvelabs.io\ndanny@twelvelabs.io\nbrice.penven@twelvelabs.io",
     external: "brian.tagami@monks.com",
     location: "TwelveLabs Booth #W1923 – NAB Booth 2",
-    date: "April 19, 2026", time: "1:00 PM", type: "meeting",
+    date: "April 19, 2026", time: "1:00 PM", type: "partner",
   },
   {
     company: "ITN",
@@ -230,7 +230,7 @@ const rawMeetings: Array<{
     internal: "john.reigart@twelvelabs.io\ndanny.nicolopoulos@twelvelabs.io\nchad.rounsavall@twelvelabs.io",
     external: "Vanessa Fiola <vanessa@qvest.com>\navery.pfeiffer@qvest.com\nfares.birke@qvest.com\nNico Bayless-Opipari <nico@qvest.com>",
     location: "TwelveLabs Booth #W1923 – NAB Booth 2",
-    date: "April 20, 2026", time: "9:00 AM", type: "meeting",
+    date: "April 20, 2026", time: "9:00 AM", type: "partner",
   },
   {
     company: "CBS",
@@ -286,7 +286,7 @@ const rawMeetings: Array<{
     internal: "john.reigart@twelvelabs.io\nemily.kurze@twelvelabs.io\ndanny.nicolopoulos@twelvelabs.io\nbrice.penven@twelvelabs.io\nbelinda.merritt@twelvelabs.io\nchad.rounsavall@twelvelabs.io\njesse.white@twelvelabs.io",
     external: "annika.kimpel@vidispine.com\nexhibition@vidispine.com\nkarsten.schragmann@vidispine.com",
     location: "Vidispine Booth #W1643",
-    date: "April 20, 2026", time: "11:00 AM", type: "meeting",
+    date: "April 20, 2026", time: "11:00 AM", type: "partner",
   },
   {
     company: "The New York Times",
@@ -425,7 +425,7 @@ const rawMeetings: Array<{
     internal: "john.reigart@twelvelabs.io\ndanny.nicolopoulos@twelvelabs.io\nkc@twelvelabs.io\nbrice.penven@twelvelabs.io",
     external: "",
     location: "Dalet Booth #W1519",
-    date: "April 20, 2026", time: "3:30 PM", type: "meeting",
+    date: "April 20, 2026", time: "3:30 PM", type: "partner",
   },
   {
     company: "Qvest (Mike Rivera)",
@@ -609,7 +609,7 @@ const rawMeetings: Array<{
     internal: "amie.araghi@twelvelabs.io\njohn.reigart@twelvelabs.io",
     external: "lhedden@mux.com",
     location: "TwelveLabs Booth #W1923 – NAB Booth 2",
-    date: "April 21, 2026", time: "2:00 PM", type: "meeting",
+    date: "April 21, 2026", time: "2:00 PM", type: "partner",
   },
   {
     company: "AWS + Versant",
@@ -708,7 +708,7 @@ const rawMeetings: Array<{
     internal: "john.reigart@twelvelabs.io\ndanny.nicolopoulos@twelvelabs.io\nbelinda.merritt@twelvelabs.io\nsimon.lecointe@twelvelabs.io",
     external: "scott.goldman@qibb.com",
     location: "TwelveLabs Booth #W1923 – NAB Booth 1",
-    date: "April 22, 2026", time: "11:30 AM", type: "meeting",
+    date: "April 22, 2026", time: "11:30 AM", type: "partner",
   },
 ];
 
