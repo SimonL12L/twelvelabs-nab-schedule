@@ -5,18 +5,20 @@ import DayView from "@/components/DayView";
 import RoomView from "@/components/RoomView";
 import PeopleView from "@/components/PeopleView";
 import CompaniesView from "@/components/CompaniesView";
+import CheckInView from "@/components/CheckInView";
 import FilterBar from "@/components/FilterBar";
 import { meetings, MeetingType } from "@/lib/data";
-import { Building2, CalendarDays, MapPin, Users, RefreshCw } from "lucide-react";
+import { Building2, CalendarDays, MapPin, Users, RefreshCw, ClipboardCheck } from "lucide-react";
 import clsx from "clsx";
 
-type View = "day" | "room" | "people" | "companies";
+type View = "day" | "room" | "people" | "companies" | "checkin";
 
 const tabs: { id: View; label: string; icon: React.ElementType }[] = [
   { id: "day", label: "By Day", icon: CalendarDays },
   { id: "room", label: "By Room", icon: MapPin },
   { id: "people", label: "By Person", icon: Users },
   { id: "companies", label: "Companies", icon: Building2 },
+  { id: "checkin", label: "Check-In", icon: ClipboardCheck },
 ];
 
 export default function Home() {
@@ -118,6 +120,7 @@ export default function Home() {
         {view === "room" && <RoomView filter={filter} />}
         {view === "people" && <PeopleView filter={filter} />}
         {view === "companies" && <CompaniesView filter={filter} />}
+        {view === "checkin" && <CheckInView />}
       </main>
     </div>
   );
