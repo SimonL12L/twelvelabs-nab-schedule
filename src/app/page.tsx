@@ -61,11 +61,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Sync info */}
-            <div className="hidden sm:flex items-center gap-1.5 text-slate-500 text-xs">
-              <RefreshCw className="w-3 h-3" />
-              <span>Synced from Google Calendar · Apr 1, 2026</span>
-            </div>
           </div>
 
           {/* Stats row */}
@@ -81,6 +76,12 @@ export default function Home() {
                 <p className="text-xs text-slate-500 mt-0.5">{label}</p>
               </div>
             ))}
+          </div>
+
+          {/* Last updated */}
+          <div className="mt-3 flex items-center gap-1.5 text-slate-500 text-xs">
+            <RefreshCw className="w-3 h-3" />
+            <span>Last updated: Apr 1, 2026</span>
           </div>
         </div>
       </header>
