@@ -193,7 +193,7 @@ export default function CheckInView() {
                               <span className="text-xs font-medium px-1.5 py-0.5 rounded bg-red-100 text-red-600">HOLD</span>
                             )}
                           </div>
-                          <div className="flex items-center gap-3 mt-0.5 text-xs text-gray-400">
+                          <div className="flex items-center gap-3 mt-0.5 text-xs text-gray-400 flex-wrap">
                             <span className="flex items-center gap-1">
                               <Clock className="w-3 h-3" />
                               {meeting.time}
@@ -206,8 +206,14 @@ export default function CheckInView() {
                             )}
                             {meeting.externalAttendees.length > 0 && (
                               <span className="flex items-center gap-1">
-                                <Users className="w-3 h-3" />
+                                <Users className="w-3 h-3 text-gray-400" />
                                 {meeting.externalAttendees.map(getContactName).join(", ")}
+                              </span>
+                            )}
+                            {meeting.internalAttendees.length > 0 && (
+                              <span className="flex items-center gap-1">
+                                <Users className="w-3 h-3 text-blue-400" />
+                                {meeting.internalAttendees.map(emailToName).join(", ")}
                               </span>
                             )}
                           </div>
