@@ -37,7 +37,7 @@ function getContactName(contact: string): string {
   return contact.includes("@") ? emailToName(contact) : contact;
 }
 
-type CheckInState = Record<string, string[]>; // meetingId → checked-in contacts
+type CheckInState = Record<string, boolean>; // meetingId → checked in
 
 export default function CheckInView() {
   const [selectedDay, setSelectedDay] = useState<number>(19);
@@ -51,13 +51,9 @@ export default function CheckInView() {
     } catch {}
   }, []);
 
-  const toggleContact = (meetingId: string, contact: string) => {
+  const toggleMeeting = (meetingId: string) => {
     setCheckedIn((prev) => {
-      const current = prev[meetingId] ?? [];
-      const updated = current.includes(contact)
-        ? current.filter((c) => c !== contact)
-        : [...current, contact];
-      const next = { ...prev, [meetingId]: updated };
+      const next = { ...prev, [meetingId]: !prev[meetingId] };
       try {
         localStorage.setItem("nab-checkin-2026", JSON.stringify(next));
       } catch {}
@@ -93,11 +89,7 @@ export default function CheckInView() {
         ];
 
   const totalMeetings = filteredMeetings.length;
-  const totalCheckedIn = filteredMeetings.filter((m) => {
-    const contacts = [...m.externalAttendees, ...m.internalAttendees];
-    const checked = checkedIn[m.id] ?? [];
-    return contacts.length > 0 && contacts.every((c) => checked.includes(c));
-  }).length;
+  const totalCheckedIn = filteredMeetings.filter((m) => checkedIn[m.id]).length;
 
   return (
     <div className="space-y-5">
@@ -171,33 +163,37 @@ export default function CheckInView() {
 
               <div className="space-y-3">
                 {items.map((meeting) => {
-                  const checked = checkedIn[meeting.id] ?? [];
-                  const allContacts = [...meeting.externalAttendees, ...meeting.internalAttendees];
-                  const checkedCount = allContacts.filter((c) => checked.includes(c)).length;
-                  const isComplete = allContacts.length > 0 && checkedCount === allContacts.length;
+                  const isChecked = !!checkedIn[meeting.id];
 
                   return (
-                    <div
+                    <button
                       key={meeting.id}
+                      onClick={() => toggleMeeting(meeting.id)}
                       className={clsx(
-                        "rounded-xl border p-4 transition-all duration-200",
-                        isComplete
-                          ? "bg-emerald-50 border-emerald-200"
+                        "w-full rounded-xl border p-4 text-left transition-all duration-200",
+                        isChecked
+                          ? "bg-emerald-50 border-emerald-300"
                           : meeting.type === "partner"
-                          ? "bg-white border-teal-200"
-                          : "bg-white border-blue-200"
+                          ? "bg-white border-teal-200 hover:border-teal-300"
+                          : "bg-white border-blue-200 hover:border-blue-300"
                       )}
                     >
-                      {/* Meeting header */}
-                      <div className="flex items-start justify-between gap-3 mb-3">
-                        <div className="min-w-0">
+                      <div className="flex items-center gap-3">
+                        {isChecked ? (
+                          <CheckCircle2 className="w-6 h-6 text-emerald-500 shrink-0" />
+                        ) : (
+                          <Circle className="w-6 h-6 text-gray-300 shrink-0" />
+                        )}
+                        <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 flex-wrap">
-                            <h3 className="font-semibold text-gray-900 text-sm">{meeting.company}</h3>
+                            <span className={clsx("font-semibold text-sm", isChecked ? "text-emerald-800" : "text-gray-900")}>
+                              {meeting.company.replace(/\s*\(HOLD\)/i, "").replace(/\s*\([^)]+\)/, "").trim()}
+                            </span>
                             {meeting.company.toUpperCase().includes("HOLD") && (
                               <span className="text-xs font-medium px-1.5 py-0.5 rounded bg-red-100 text-red-600">HOLD</span>
                             )}
                           </div>
-                          <div className="flex items-center gap-3 mt-1 text-xs text-gray-500">
+                          <div className="flex items-center gap-3 mt-0.5 text-xs text-gray-400">
                             <span className="flex items-center gap-1">
                               <Clock className="w-3 h-3" />
                               {meeting.time}
@@ -208,90 +204,19 @@ export default function CheckInView() {
                                 {getLocationCategory(meeting.location)}
                               </span>
                             )}
+                            {meeting.externalAttendees.length > 0 && (
+                              <span className="flex items-center gap-1">
+                                <Users className="w-3 h-3" />
+                                {meeting.externalAttendees.map(getContactName).join(", ")}
+                              </span>
+                            )}
                           </div>
                         </div>
-                        {allContacts.length > 0 && (
-                          <div
-                            className={clsx(
-                              "shrink-0 text-xs font-semibold px-2.5 py-1 rounded-full",
-                              isComplete
-                                ? "bg-emerald-100 text-emerald-700"
-                                : checkedCount > 0
-                                ? "bg-amber-100 text-amber-700"
-                                : "bg-gray-100 text-gray-500"
-                            )}
-                          >
-                            {checkedCount}/{allContacts.length}
-                          </div>
+                        {isChecked && (
+                          <span className="shrink-0 text-xs font-semibold text-emerald-600">Arrived</span>
                         )}
                       </div>
-
-                      {/* Attendee checklist */}
-                      <div className="space-y-3">
-                        {meeting.externalAttendees.length > 0 && (
-                          <div>
-                            <p className="text-xs font-medium text-gray-400 uppercase tracking-wide mb-1.5">Guests</p>
-                            <div className="space-y-1.5">
-                              {meeting.externalAttendees.map((contact) => {
-                                const isChecked = checked.includes(contact);
-                                return (
-                                  <button
-                                    key={contact}
-                                    onClick={() => toggleContact(meeting.id, contact)}
-                                    className={clsx(
-                                      "w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm transition-all duration-150 text-left",
-                                      isChecked
-                                        ? "bg-emerald-100 text-emerald-800"
-                                        : "bg-gray-50 text-gray-700 hover:bg-gray-100"
-                                    )}
-                                  >
-                                    {isChecked ? (
-                                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                                    ) : (
-                                      <Circle className="w-4 h-4 text-gray-300 shrink-0" />
-                                    )}
-                                    <span className="font-medium">{getContactName(contact)}</span>
-                                    {isChecked && <span className="ml-auto text-xs text-emerald-600">Arrived</span>}
-                                  </button>
-                                );
-                              })}
-                            </div>
-                          </div>
-                        )}
-
-                        {meeting.internalAttendees.length > 0 && (
-                          <div>
-                            <p className="text-xs font-medium text-gray-400 uppercase tracking-wide mb-1.5 flex items-center gap-1">
-                              <Users className="w-3 h-3" /> TwelveLabs
-                            </p>
-                            <div className="flex flex-wrap gap-1.5">
-                              {meeting.internalAttendees.map((email) => {
-                                const isChecked = checked.includes(email);
-                                return (
-                                  <button
-                                    key={email}
-                                    onClick={() => toggleContact(meeting.id, email)}
-                                    className={clsx(
-                                      "inline-flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-full border transition-all duration-150",
-                                      isChecked
-                                        ? "bg-blue-100 text-blue-700 border-blue-200"
-                                        : "bg-white text-gray-600 border-gray-200 hover:border-gray-300"
-                                    )}
-                                  >
-                                    {isChecked ? (
-                                      <CheckCircle2 className="w-3 h-3" />
-                                    ) : (
-                                      <Circle className="w-3 h-3 text-gray-300" />
-                                    )}
-                                    {emailToName(email)}
-                                  </button>
-                                );
-                              })}
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    </div>
+                    </button>
                   );
                 })}
               </div>
