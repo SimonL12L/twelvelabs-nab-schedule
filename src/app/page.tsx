@@ -69,9 +69,9 @@ export default function Home() {
           {/* Stats row */}
           <div className="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-3">
             {[
-              { label: "Total Events", value: counts.__total },
+              { label: "Total Meetings", value: (counts.meeting ?? 0) + (counts.partner ?? 0) },
               { label: "Customer Meetings", value: counts.meeting ?? 0 },
-              { label: "Panels / Speaking", value: counts.panel ?? 0 },
+              { label: "Partner Meetings", value: counts.partner ?? 0 },
               { label: "Team Members", value: new Set(meetings.flatMap((m) => m.internalAttendees)).size },
             ].map(({ label, value }) => (
               <div key={label} className="bg-slate-900 rounded-xl border border-slate-800 px-4 py-3">
