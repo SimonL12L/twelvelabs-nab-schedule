@@ -64,7 +64,7 @@ export default function Home() {
             {/* Sync info */}
             <div className="hidden sm:flex items-center gap-1.5 text-slate-500 text-xs">
               <RefreshCw className="w-3 h-3" />
-              <span>Synced from Google Calendar · Mar 26, 2026</span>
+              <span>Synced from Google Calendar · Apr 1, 2026</span>
             </div>
           </div>
 
