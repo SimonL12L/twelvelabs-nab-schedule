@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { meetings, Meeting } from "@/lib/data";
+import { meetings, Meeting, emailToName } from "@/lib/data";
 import { Clock, MapPin, CheckCircle2, Circle, Users } from "lucide-react";
 import clsx from "clsx";
 
@@ -26,11 +26,6 @@ function getLocationCategory(location: string): string | null {
   if (location.includes("Partner Theater")) return "Partner Theater";
   if (location.includes("Fontainebleau") || location.includes("NAB VIP")) return "Fontainebleau";
   return null;
-}
-
-function emailToName(email: string): string {
-  const local = email.split("@")[0];
-  return local.split(".").map((p) => p.charAt(0).toUpperCase() + p.slice(1)).join(" ");
 }
 
 function getContactName(contact: string): string {

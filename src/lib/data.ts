@@ -1,4 +1,4 @@
-export type MeetingType = "meeting" | "partner" | "panel" | "dinner" | "event" | "internal";
+export type MeetingType = "meeting" | "partner" | "theater" | "panel" | "dinner" | "event" | "internal";
 
 export interface Meeting {
   id: string;
@@ -35,6 +35,32 @@ function toIso(date: string, time: string): string {
 function parseContact(raw: string): string {
   const match = raw.match(/^(.+?)\s*<[^>]+>$/);
   return match ? match[1].trim() : raw.trim();
+}
+
+// Partner emails: if any of these are internal attendees, the meeting is a "partner" meeting
+const PARTNER_EMAILS = new Set([
+  "danny.nicolopoulos@twelvelabs.io",
+  "belinda.merritt@twelvelabs.io",
+  "kelly.hackenburg@twelvelabs.io",
+  "john.reigart@twelvelabs.io",
+  "abby.chittams@twelvelabs.io",
+]);
+
+// Theater speaking slot: when ONLY these two are internal attendees at the Partner Theater
+const THEATER_ATTENDEES = new Set([
+  "emily.kurze@twelvelabs.io",
+  "allyson.gottlieb@twelvelabs.io",
+]);
+
+export const NAME_OVERRIDES: Record<string, string> = {
+  "yoon.sohn@twelvelabs.io": "Andy Sohn",
+  "robert.mohr@twelvelabs.io": "Bobby Mohr",
+};
+
+export function emailToName(email: string): string {
+  if (NAME_OVERRIDES[email]) return NAME_OVERRIDES[email];
+  const local = email.split("@")[0];
+  return local.split(".").map((p) => p.charAt(0).toUpperCase() + p.slice(1)).join(" ");
 }
 
 const rawMeetings: Array<{
@@ -151,7 +177,7 @@ const rawMeetings: Array<{
   },
   {
     company: "Monks",
-    internal: "john.reigart@twelvelabs.io\ndanny@twelvelabs.io\njordan.woods@twelvelabs.io",
+    internal: "john.reigart@twelvelabs.io\ndanny.nicolopoulos@twelvelabs.io\njordan.woods@twelvelabs.io",
     external: "brian.tagami@monks.com",
     location: "TwelveLabs Booth #W1923 – NAB Booth 2",
     date: "April 19, 2026", time: "1:00 PM", type: "partner",
@@ -207,14 +233,14 @@ const rawMeetings: Array<{
   },
   {
     company: "AWS",
-    internal: "john.reigart@twelvelabs.io\ndanny@twelvelabs.io\nkelly.hackenburg@twelvelabs.io\nabby@twelvelabs.io",
+    internal: "john.reigart@twelvelabs.io\ndanny.nicolopoulos@twelvelabs.io\nkelly.hackenburg@twelvelabs.io\nabby.chittams@twelvelabs.io",
     external: "trosenst@amazon.com",
     location: "TwelveLabs Booth #W1923 – NAB Booth 2",
     date: "April 19, 2026", time: "3:00 PM", type: "partner",
   },
   {
     company: "Vubiquity",
-    internal: "dan.germain@twelvelabs.io\nbobby@twelvelabs.io\ndavid.morel@twelvelabs.io",
+    internal: "dan.germain@twelvelabs.io\nrobert.mohr@twelvelabs.io\ndavid.morel@twelvelabs.io",
     external: "nfrink@vubiquity.com\njancheta-tilley@vubiquity.com",
     location: "TwelveLabs Booth #W1923 – NAB Booth 1",
     date: "April 19, 2026", time: "3:00 PM", type: "meeting",
@@ -310,7 +336,7 @@ const rawMeetings: Array<{
   },
   {
     company: "CBS",
-    internal: "ethan.heerwagen@twelvelabs.io\nbrice.penven@twelvelabs.io\nsimon@twelvelabs.io",
+    internal: "ethan.heerwagen@twelvelabs.io\nbrice.penven@twelvelabs.io\nsimon.lecointe@twelvelabs.io",
     external: "lhg@cbsnews.com\najg@cbsnews.com\ndaganr@cbsnews.com",
     location: "TwelveLabs Booth #W1923 – NAB Booth 1",
     date: "April 20, 2026", time: "9:00 AM", type: "meeting",
@@ -352,7 +378,7 @@ const rawMeetings: Array<{
   },
   {
     company: "Catapult",
-    internal: "ethan.heerwagen@twelvelabs.io\nkc@twelvelabs.io",
+    internal: "ethan.heerwagen@twelvelabs.io\nkyle.cabigon@twelvelabs.io",
     external: "dave.wilson@catapult.com\nlee.cadman@catapult.com",
     location: "TwelveLabs Booth #W1923 – Partner Theater",
     date: "April 20, 2026", time: "11:00 AM", type: "partner",
@@ -386,14 +412,14 @@ const rawMeetings: Array<{
   },
   {
     company: "NFL Films",
-    internal: "chad.rounsavall@twelvelabs.io\nethan.heerwagen@twelvelabs.io\nsimon@twelvelabs.io\njesse.white@twelvelabs.io",
+    internal: "chad.rounsavall@twelvelabs.io\nethan.heerwagen@twelvelabs.io\nsimon.lecointe@twelvelabs.io\njesse.white@twelvelabs.io",
     external: "",
     location: "TwelveLabs Booth #W1923 – NAB Booth 2",
     date: "April 20, 2026", time: "12:00 PM", type: "meeting",
   },
   {
     company: "ABC / Disney",
-    internal: "dan.germain@twelvelabs.io\nsimon@twelvelabs.io\ndavid.morel@twelvelabs.io",
+    internal: "dan.germain@twelvelabs.io\nsimon.lecointe@twelvelabs.io\ndavid.morel@twelvelabs.io",
     external: "mike.b.marzio@disney.com\nnancy.berni@disney.com\njohn.d.mcnally@abc.com",
     location: "TwelveLabs Booth #W1923 – NAB Booth 1",
     date: "April 20, 2026", time: "12:00 PM", type: "meeting",
@@ -491,7 +517,7 @@ const rawMeetings: Array<{
   },
   {
     company: "Streaming Summit Panel (Bobby)",
-    internal: "maddi.santos@twelvelabs.io\nbobby@twelvelabs.io\njae@twelvelabs.io\nyoon.kim@twelvelabs.io",
+    internal: "maddi.santos@twelvelabs.io\nrobert.mohr@twelvelabs.io\njae@twelvelabs.io\nyoon.kim@twelvelabs.io",
     external: "",
     location: "NAB Show – W209-W210",
     date: "April 20, 2026", time: "2:45 PM", type: "panel",
@@ -526,7 +552,7 @@ const rawMeetings: Array<{
   },
   {
     company: "Dalet",
-    internal: "john.reigart@twelvelabs.io\ndanny.nicolopoulos@twelvelabs.io\nkc@twelvelabs.io\nbrice.penven@twelvelabs.io",
+    internal: "john.reigart@twelvelabs.io\ndanny.nicolopoulos@twelvelabs.io\nkyle.cabigon@twelvelabs.io\nbrice.penven@twelvelabs.io",
     external: "",
     location: "Dalet Booth #W1519",
     date: "April 20, 2026", time: "3:30 PM", type: "partner",
@@ -561,7 +587,7 @@ const rawMeetings: Array<{
   },
   {
     company: "NBA",
-    internal: "ethan.heerwagen@twelvelabs.io\njesse.white@twelvelabs.io\nadrienne@twelvelabs.io\nchad.rounsavall@twelvelabs.io\nsimon.lecointe@twelvelabs.io\nkc@twelvelabs.io",
+    internal: "ethan.heerwagen@twelvelabs.io\njesse.white@twelvelabs.io\nadrienne@twelvelabs.io\nchad.rounsavall@twelvelabs.io\nsimon.lecointe@twelvelabs.io\nkyle.cabigon@twelvelabs.io",
     external: "vcerejo@nba.com\nmilally@amazon.com",
     location: "TwelveLabs Booth #W1923 – NAB Booth 1",
     date: "April 20, 2026", time: "4:30 PM", type: "meeting",
@@ -610,7 +636,7 @@ const rawMeetings: Array<{
   },
   {
     company: "Bernie Gershon VIP Exec Dinner",
-    internal: "soyoung@twelvelabs.io\nmaddi.santos@twelvelabs.io\nbobby@twelvelabs.io",
+    internal: "soyoung@twelvelabs.io\nmaddi.santos@twelvelabs.io\nrobert.mohr@twelvelabs.io",
     external: "",
     location: "Las Vegas, NV",
     date: "April 20, 2026", time: "6:00 PM", type: "dinner",
@@ -734,7 +760,7 @@ const rawMeetings: Array<{
   },
   {
     company: "Paramount / MTV",
-    internal: "ethan.heerwagen@twelvelabs.io\njuddy.talt@twelvelabs.io\nchad.rounsavall@twelvelabs.io\nbobby@twelvelabs.io\ndavid.morel@twelvelabs.io",
+    internal: "ethan.heerwagen@twelvelabs.io\njuddy.talt@twelvelabs.io\nchad.rounsavall@twelvelabs.io\nrobert.mohr@twelvelabs.io\ndavid.morel@twelvelabs.io",
     external: "james.cohan@mtvstaff.com",
     location: "TwelveLabs Booth #W1923 – NAB Booth 2",
     date: "April 21, 2026", time: "11:00 AM", type: "meeting",
@@ -782,7 +808,7 @@ const rawMeetings: Array<{
   },
   {
     company: "DataCore",
-    internal: "john.reigart@twelvelabs.io\ndanny@twelvelabs.io\nbelinda.merritt@twelvelabs.io",
+    internal: "john.reigart@twelvelabs.io\ndanny.nicolopoulos@twelvelabs.io\nbelinda.merritt@twelvelabs.io",
     external: "serena.harris@datacore.com\nnabbookings@datacore.com\nbarry.evans@datacore.com",
     location: "TwelveLabs Booth #W1923 – NAB Booth 2",
     date: "April 21, 2026", time: "12:00 PM", type: "partner",
@@ -817,7 +843,7 @@ const rawMeetings: Array<{
   },
   {
     company: "XR Extreme Reach",
-    internal: "tom@twelvelabs.io\nbobby@twelvelabs.io",
+    internal: "tom@twelvelabs.io\nrobert.mohr@twelvelabs.io",
     external: "sherman.li@extremereach.com\nalyssa.omalley@extremereach.com",
     location: "Opal Boardroom – Floor 2, Fontainebleau",
     date: "April 21, 2026", time: "1:00 PM", type: "meeting",
@@ -887,7 +913,7 @@ const rawMeetings: Array<{
   },
   {
     company: "AWS, Wowza & UTA",
-    internal: "tom@twelvelabs.io\nethan.heerwagen@twelvelabs.io\nbrice.penven@twelvelabs.io\nabby@twelvelabs.io",
+    internal: "tom@twelvelabs.io\nethan.heerwagen@twelvelabs.io\nbrice.penven@twelvelabs.io\nabby.chittams@twelvelabs.io",
     external: "jaredlw@amazon.com\nwhitatik@amazon.com",
     location: "TwelveLabs Booth #W1923 – NAB Booth 1",
     date: "April 21, 2026", time: "4:00 PM", type: "meeting",
@@ -949,7 +975,7 @@ const rawMeetings: Array<{
   },
   {
     company: "WBD Exec Dinner – Cipriani (HOLD)",
-    internal: "jae@twelvelabs.io\nsoyoung@twelvelabs.io\nyoon.kim@twelvelabs.io\nallie.bernacchi@twelvelabs.io\nchad.rounsavall@twelvelabs.io\nbobby@twelvelabs.io",
+    internal: "jae@twelvelabs.io\nsoyoung@twelvelabs.io\nyoon.kim@twelvelabs.io\nallie.bernacchi@twelvelabs.io\nchad.rounsavall@twelvelabs.io\nrobert.mohr@twelvelabs.io",
     external: "",
     location: "Cipriani Las Vegas",
     date: "April 21, 2026", time: "7:00 PM", type: "dinner",
@@ -982,7 +1008,7 @@ const rawMeetings: Array<{
   },
   {
     company: "Backlight (HOLD)",
-    internal: "john.reigart@twelvelabs.io\nsoyoung@twelvelabs.io\ndanny.nicolopoulos@twelvelabs.io\nkc@twelvelabs.io",
+    internal: "john.reigart@twelvelabs.io\nsoyoung@twelvelabs.io\ndanny.nicolopoulos@twelvelabs.io\nkyle.cabigon@twelvelabs.io",
     external: "",
     location: "Backlight Booth – North Hall",
     date: "April 22, 2026", time: "9:30 AM", type: "partner",
@@ -996,7 +1022,7 @@ const rawMeetings: Array<{
   },
   {
     company: "Gracenote",
-    internal: "tom@twelvelabs.io\nbobby@twelvelabs.io",
+    internal: "tom@twelvelabs.io\nrobert.mohr@twelvelabs.io",
     external: "manasvi.sharma@nielsen.com\nNandita Arora",
     location: "TwelveLabs Booth #W1923 – NAB Booth 1",
     date: "April 22, 2026", time: "10:00 AM", type: "meeting",
@@ -1037,18 +1063,38 @@ const rawMeetings: Array<{
   },
 ];
 
-export const meetings: Meeting[] = rawMeetings.map((m, i) => ({
-  id: `mtg-${i}`,
-  company: m.company,
-  internalAttendees: parseList(m.internal),
-  externalAttendees: parseList(m.external).map(parseContact),
-  location: m.location,
-  date: m.date,
-  time: m.time,
-  isoDate: toIso(m.date, m.time),
-  type: m.type,
-  day: getDay(m.date),
-}));
+export const meetings: Meeting[] = rawMeetings.map((m, i) => {
+  const internalList = parseList(m.internal);
+
+  // Partner Theater speaking slot: only emily/allyson as internal attendees
+  const isTheater =
+    m.location === "TwelveLabs Booth #W1923 – Partner Theater" &&
+    internalList.length > 0 &&
+    internalList.every((e) => THEATER_ATTENDEES.has(e));
+
+  // Auto-classify meeting vs partner; preserve all other explicit types
+  let type: MeetingType;
+  if (isTheater) {
+    type = "theater";
+  } else if (m.type === "meeting" || m.type === "partner") {
+    type = internalList.some((e) => PARTNER_EMAILS.has(e)) ? "partner" : "meeting";
+  } else {
+    type = m.type;
+  }
+
+  return {
+    id: `mtg-${i}`,
+    company: m.company,
+    internalAttendees: internalList,
+    externalAttendees: parseList(m.external).map(parseContact),
+    location: m.location,
+    date: m.date,
+    time: m.time,
+    isoDate: toIso(m.date, m.time),
+    type,
+    day: getDay(m.date),
+  };
+});
 
 export const days = [
   { day: 19, label: "Sun, April 19", shortLabel: "Apr 19" },
@@ -1073,12 +1119,7 @@ export function getPeople(): { email: string; name: string }[] {
   meetings.forEach((m) => m.internalAttendees.forEach((e) => emails.add(e)));
   return Array.from(emails)
     .sort()
-    .map((email) => {
-      const local = email.split("@")[0];
-      const parts = local.split(".");
-      const name = parts.map((p) => p.charAt(0).toUpperCase() + p.slice(1)).join(" ");
-      return { email, name };
-    });
+    .map((email) => ({ email, name: emailToName(email) }));
 }
 
 function normalizeCompanyName(company: string): string {

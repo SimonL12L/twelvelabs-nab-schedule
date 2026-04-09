@@ -14,6 +14,7 @@ const options: FilterOption[] = [
   { value: "all", label: "All", active: "bg-slate-800 text-white border-slate-800", dot: "bg-slate-400" },
   { value: "meeting", label: "Customer Meetings", active: "bg-blue-600 text-white border-blue-600", dot: "bg-blue-400" },
   { value: "partner", label: "Partner Meetings", active: "bg-teal-600 text-white border-teal-600", dot: "bg-teal-400" },
+  { value: "theater", label: "Partner Theater", active: "bg-orange-500 text-white border-orange-500", dot: "bg-orange-400" },
   { value: "panel", label: "Panels & Speaking", active: "bg-violet-600 text-white border-violet-600", dot: "bg-violet-400" },
   { value: "dinner", label: "Dinners", active: "bg-amber-500 text-white border-amber-500", dot: "bg-amber-400" },
   { value: "event", label: "Events", active: "bg-emerald-600 text-white border-emerald-600", dot: "bg-emerald-400" },
