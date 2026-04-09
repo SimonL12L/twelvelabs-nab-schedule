@@ -581,6 +581,13 @@ const rawMeetings: Array<{
     date: "April 20, 2026", time: "5:00 PM", type: "meeting",
   },
   {
+    company: "Press – Danny at Avid Booth",
+    internal: "emily.kurze@twelvelabs.io",
+    external: "",
+    location: "Avid Booth North Hall #N2226",
+    date: "April 20, 2026", time: "5:00 PM", type: "event",
+  },
+  {
     company: "Aaron Sloman",
     internal: "emily.kurze@twelvelabs.io\nallyson.gottlieb@twelvelabs.io",
     external: "Aaron Sloman",
@@ -691,6 +698,13 @@ const rawMeetings: Array<{
     date: "April 21, 2026", time: "10:00 AM", type: "meeting",
   },
   {
+    company: "AWS – Jordan Alexander (HOLD)",
+    internal: "jesse.white@twelvelabs.io",
+    external: "",
+    location: "AWS Booth",
+    date: "April 21, 2026", time: "10:00 AM", type: "meeting",
+  },
+  {
     company: "Formula 1",
     internal: "jesse.white@twelvelabs.io\nbrice.penven@twelvelabs.io\nallie.bernacchi@twelvelabs.io\nchad.rounsavall@twelvelabs.io\nallie.shelton@twelvelabs.io",
     external: "jwilliams@f1.com",
@@ -751,6 +765,13 @@ const rawMeetings: Array<{
     external: "",
     location: "TwelveLabs Booth #W1923 – Demo Station",
     date: "April 21, 2026", time: "11:30 AM", type: "meeting",
+  },
+  {
+    company: "Evolve Studios (HOLD)",
+    internal: "juddy.talt@twelvelabs.io\ndavid.morel@twelvelabs.io",
+    external: "melissafloreth@evolve.studio\nspencer@evolve.studio",
+    location: "TwelveLabs Booth #W1923 – NAB Booth 1",
+    date: "April 21, 2026", time: "11:45 AM", type: "meeting",
   },
   {
     company: "F1 (HOLD)",
@@ -914,14 +935,14 @@ const rawMeetings: Array<{
   },
   {
     company: "AWS / Presidio Exec Happy Hour",
-    internal: "emily.kurze@twelvelabs.io",
+    internal: "emily.kurze@twelvelabs.io\ndanny.nicolopoulos@twelvelabs.io\njesse.white@twelvelabs.io",
     external: "",
     location: "The Library @ Marquee Nightclub, 3708 Las Vegas Blvd S",
     date: "April 21, 2026", time: "6:00 PM", type: "event",
   },
   {
     company: "Customer Dinner – TL / VAST / Monks",
-    internal: "danny.nicolopoulos@twelvelabs.io\nemily.kurze@twelvelabs.io",
+    internal: "danny.nicolopoulos@twelvelabs.io\nemily.kurze@twelvelabs.io\namie.araghi@twelvelabs.io",
     external: "",
     location: "Canaletto, Venetian, Las Vegas",
     date: "April 21, 2026", time: "6:30 PM", type: "dinner",
@@ -958,6 +979,13 @@ const rawMeetings: Array<{
     internal: "", external: "",
     location: "Las Vegas Convention Center",
     date: "April 22, 2026", time: "9:00 AM", type: "event",
+  },
+  {
+    company: "Backlight (HOLD)",
+    internal: "john.reigart@twelvelabs.io\nsoyoung@twelvelabs.io\ndanny.nicolopoulos@twelvelabs.io\nkc@twelvelabs.io",
+    external: "",
+    location: "Backlight Booth – North Hall",
+    date: "April 22, 2026", time: "9:30 AM", type: "partner",
   },
   {
     company: "Imagine Consulting",
