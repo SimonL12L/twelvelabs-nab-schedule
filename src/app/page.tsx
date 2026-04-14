@@ -81,7 +81,7 @@ export default function Home() {
           {/* Last updated */}
           <div className="mt-3 flex items-center gap-1.5 text-slate-500 text-xs">
             <RefreshCw className="w-3 h-3" />
-            <span>Last updated: Apr 8, 2026</span>
+            <span>Last updated: Apr 14, 2026</span>
           </div>
         </div>
       </header>
