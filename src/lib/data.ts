@@ -1397,3 +1397,21 @@ export function getMeetingsByLocation(location: string, filter: MeetingType | "a
     filter
   ).sort((a, b) => a.isoDate.localeCompare(b.isoDate));
 }
+
+export function searchMeetings(query: string, filter: MeetingType | "all" = "all"): Meeting[] {
+  const q = query.toLowerCase().trim();
+  if (!q) return [];
+  return filterMeetings(meetings, filter)
+    .filter((m) => {
+      const haystack = [
+        m.company,
+        m.location,
+        ...m.internalAttendees.map(emailToName),
+        ...m.externalAttendees,
+      ]
+        .join(" ")
+        .toLowerCase();
+      return haystack.includes(q);
+    })
+    .sort((a, b) => a.isoDate.localeCompare(b.isoDate));
+}

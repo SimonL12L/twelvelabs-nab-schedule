@@ -1,14 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import DayView from "@/components/DayView";
 import RoomView from "@/components/RoomView";
 import PeopleView from "@/components/PeopleView";
 import CompaniesView from "@/components/CompaniesView";
 import CheckInView from "@/components/CheckInView";
+import SearchView from "@/components/SearchView";
 import FilterBar from "@/components/FilterBar";
 import { meetings, MeetingType } from "@/lib/data";
-import { Building2, CalendarDays, MapPin, Users, RefreshCw, ClipboardCheck } from "lucide-react";
+import { Building2, CalendarDays, MapPin, Users, RefreshCw, ClipboardCheck, Search, X } from "lucide-react";
 import clsx from "clsx";
 
 type View = "day" | "room" | "people" | "companies" | "checkin";
@@ -24,6 +25,22 @@ const tabs: { id: View; label: string; shortLabel: string; icon: React.ElementTy
 export default function Home() {
   const [view, setView] = useState<View>("day");
   const [filter, setFilter] = useState<MeetingType | "all">("all");
+  const [searching, setSearching] = useState(false);
+  const [search, setSearch] = useState("");
+  const searchInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (searching) searchInputRef.current?.focus();
+  }, [searching]);
+
+  function openSearch() {
+    setSearching(true);
+  }
+
+  function closeSearch() {
+    setSearching(false);
+    setSearch("");
+  }
 
   // Type counts for the filter bar
   const counts = meetings.reduce(
@@ -86,39 +103,85 @@ export default function Home() {
       {/* ── Nav / Controls ─────────────────────────────────────────────────── */}
       <div className="bg-white border-b border-gray-200 sticky top-0 z-20 shadow-sm">
         <div className="max-w-6xl mx-auto px-2 sm:px-6">
-          {/* Tabs */}
+          {/* Tabs + search toggle */}
           <div className="flex items-center gap-0.5 sm:gap-1 pt-2 sm:pt-3 overflow-x-auto scrollbar-none">
-            {tabs.map(({ id, label, shortLabel, icon: Icon }) => (
+            {tabs.map(({ id, shortLabel, icon: Icon }) => (
               <button
                 key={id}
-                onClick={() => setView(id)}
+                onClick={() => { setView(id); closeSearch(); }}
                 className={clsx(
                   "flex items-center gap-1.5 px-3 sm:px-4 py-2.5 text-sm font-medium transition-all duration-150 border-b-2 whitespace-nowrap",
-                  view === id
+                  view === id && !searching
                     ? "border-blue-600 text-blue-600"
                     : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
                 )}
               >
                 <Icon className="w-4 h-4 shrink-0" />
-                <span className="hidden xs:inline sm:inline">{shortLabel}</span>
+                <span className="hidden sm:inline">{shortLabel}</span>
               </button>
             ))}
+            {/* Search icon */}
+            <button
+              onClick={searching ? closeSearch : openSearch}
+              className={clsx(
+                "ml-auto flex items-center gap-1.5 px-3 py-2.5 text-sm font-medium transition-all duration-150 border-b-2 whitespace-nowrap shrink-0",
+                searching
+                  ? "border-blue-600 text-blue-600"
+                  : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+              )}
+              aria-label="Search"
+            >
+              <Search className="w-4 h-4" />
+              <span className="hidden sm:inline">Search</span>
+            </button>
           </div>
 
-          {/* Filter bar */}
-          <div className="py-2 sm:py-3 overflow-x-auto scrollbar-none">
-            <FilterBar active={filter} onChange={setFilter} counts={counts} />
+          {/* Filter bar OR search input */}
+          <div className="py-2 sm:py-3">
+            {searching ? (
+              <div className="relative flex items-center">
+                <Search className="absolute left-3 w-4 h-4 text-gray-400 pointer-events-none" />
+                <input
+                  ref={searchInputRef}
+                  type="text"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  onKeyDown={(e) => e.key === "Escape" && closeSearch()}
+                  placeholder="Search meetings, companies, people…"
+                  className="w-full pl-9 pr-9 py-2 text-sm bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-400 transition-colors"
+                />
+                {search && (
+                  <button
+                    onClick={() => setSearch("")}
+                    className="absolute right-3 text-gray-400 hover:text-gray-600 transition-colors"
+                    aria-label="Clear search"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                )}
+              </div>
+            ) : (
+              <div className="overflow-x-auto scrollbar-none">
+                <FilterBar active={filter} onChange={setFilter} counts={counts} />
+              </div>
+            )}
           </div>
         </div>
       </div>
 
       {/* ── Content ────────────────────────────────────────────────────────── */}
       <main className="max-w-6xl mx-auto px-3 sm:px-6 py-4 sm:py-6">
-        {view === "day" && <DayView filter={filter} />}
-        {view === "room" && <RoomView filter={filter} />}
-        {view === "people" && <PeopleView filter={filter} />}
-        {view === "companies" && <CompaniesView filter={filter} />}
-        {view === "checkin" && <CheckInView />}
+        {search.trim() ? (
+          <SearchView query={search} filter={filter} />
+        ) : (
+          <>
+            {view === "day" && <DayView filter={filter} />}
+            {view === "room" && <RoomView filter={filter} />}
+            {view === "people" && <PeopleView filter={filter} />}
+            {view === "companies" && <CompaniesView filter={filter} />}
+            {view === "checkin" && <CheckInView />}
+          </>
+        )}
       </main>
     </div>
   );
