@@ -866,7 +866,7 @@ const rawMeetings: Array<{
   },
   {
     company: "AWS (Fenix / UK)",
-    internal: "bobby@twelvelabs.io\ndan.germain@twelvelabs.io",
+    internal: "robert.mohr@twelvelabs.io\ndan.germain@twelvelabs.io",
     external: "piiber@amazon.co.uk\nhahannar@amazon.co.uk",
     location: "TwelveLabs Booth #W1923 – NAB Booth 2",
     date: "April 20, 2026", time: "1:00 PM", type: "meeting",
