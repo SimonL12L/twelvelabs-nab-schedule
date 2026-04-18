@@ -323,7 +323,7 @@ const rawMeetings: Array<{
   },
   {
     company: "Backlight",
-    internal: "soyoung@twelvelabs.io\ndanny.nicolopoulos@twelvelabs.io\njohn.reigart@twelvelabs.io\nkc@twelvelabs.io",
+    internal: "soyoung@twelvelabs.io\ndanny.nicolopoulos@twelvelabs.io\njohn.reigart@twelvelabs.io\nkyle.cabigon@twelvelabs.io",
     external: "kathleen.barrett@backlight.co",
     location: "Opal Boardroom – Floor 2, Fontainebleau",
     date: "April 19, 2026", time: "10:45 AM", type: "meeting",
@@ -754,7 +754,7 @@ const rawMeetings: Array<{
   },
   {
     company: "NVIDIA",
-    internal: "soyoung@twelvelabs.io\ndanger@twelvelabs.io",
+    internal: "soyoung@twelvelabs.io\ndan.germain@twelvelabs.io",
     external: "lsmithingham@nvidia.com",
     location: "TwelveLabs Booth #W1923 – Demo Station",
     date: "April 20, 2026", time: "9:00 AM", type: "meeting",
@@ -803,7 +803,7 @@ const rawMeetings: Array<{
   },
   {
     company: "NHK (HOLD)",
-    internal: "yoon.sohn@twelvelabs.io\nyoon.kim@twelvelabs.io\nsimon.lecointe@twelvelabs.io\nkc@twelvelabs.io",
+    internal: "yoon.sohn@twelvelabs.io\nyoon.kim@twelvelabs.io\nsimon.lecointe@twelvelabs.io\nkyle.cabigon@twelvelabs.io",
     external: "kitajima.s-gi@nhk.or.jp\ntakeuchi.a-ic@nhk.or.jp\nwada.k-cw@nhk.or.jp\nhiratasy@amazon.co.jp",
     location: "Opal Boardroom – Floor 2, Fontainebleau",
     date: "April 20, 2026", time: "6:00 PM", type: "meeting",
