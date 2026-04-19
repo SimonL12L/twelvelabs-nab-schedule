@@ -1491,7 +1491,9 @@ export function searchMeetings(query: string, filter: MeetingType | "all" = "all
         m.company,
         m.location,
         ...m.internalAttendees.map(emailToName),
-        ...m.externalAttendees,
+        ...m.externalAttendees.flatMap((c) =>
+          c.includes("@") ? [c, emailToName(c)] : [c]
+        ),
       ]
         .join(" ")
         .toLowerCase();

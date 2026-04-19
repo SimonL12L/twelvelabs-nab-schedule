@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { meetings, Meeting, emailToName } from "@/lib/data";
-import { Clock, MapPin, CheckCircle2, Circle, Users } from "lucide-react";
+import { Clock, MapPin, CheckCircle2, Circle, Users, Search, X } from "lucide-react";
 import clsx from "clsx";
 
 const DAYS = [
@@ -38,6 +38,7 @@ export default function CheckInView() {
   const [selectedDay, setSelectedDay] = useState<number>(19);
   const [selectedLocation, setSelectedLocation] = useState<string>("all");
   const [checkedIn, setCheckedIn] = useState<CheckInState>({});
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     try {
@@ -56,6 +57,8 @@ export default function CheckInView() {
     });
   };
 
+  const q = searchQuery.toLowerCase().trim();
+
   const filteredMeetings = meetings
     .filter((m) => {
       if (m.type !== "meeting" && m.type !== "partner") return false;
@@ -63,6 +66,16 @@ export default function CheckInView() {
       const category = getLocationCategory(m.location);
       if (!category) return false;
       if (selectedLocation !== "all" && category !== selectedLocation) return false;
+      if (q) {
+        const haystack = [
+          m.company,
+          ...m.internalAttendees.map(emailToName),
+          ...m.externalAttendees.flatMap((c) =>
+            c.includes("@") ? [c, emailToName(c)] : [c]
+          ),
+        ].join(" ").toLowerCase();
+        if (!haystack.includes(q)) return false;
+      }
       return true;
     })
     .sort((a, b) => a.isoDate.localeCompare(b.isoDate));
@@ -88,6 +101,27 @@ export default function CheckInView() {
 
   return (
     <div className="space-y-5">
+      {/* Search */}
+      <div className="relative flex items-center">
+        <Search className="absolute left-3 w-4 h-4 text-gray-400 pointer-events-none" />
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder="Search company or person…"
+          className="w-full pl-9 pr-9 py-2 text-sm bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-400 transition-colors"
+        />
+        {searchQuery && (
+          <button
+            onClick={() => setSearchQuery("")}
+            className="absolute right-3 text-gray-400 hover:text-gray-600 transition-colors"
+            aria-label="Clear search"
+          >
+            <X className="w-4 h-4" />
+          </button>
+        )}
+      </div>
+
       {/* Day filter */}
       <div className="flex flex-wrap gap-2">
         {DAYS.map(({ day, label }) => (
