@@ -19,6 +19,7 @@ const BOOTH_LOCATIONS = [
   { key: "NAB Booth 2", label: "NAB Booth 2" },
   { key: "Partner Theater", label: "Partner Theater" },
   { key: "Fontainebleau", label: "VIP / Fontainebleau" },
+  { key: "Unassigned", label: "No Room Assigned" },
 ];
 
 function getLocationCategory(location: string): string | null {
@@ -27,6 +28,7 @@ function getLocationCategory(location: string): string | null {
   if (location.includes("NAB Booth 2")) return "NAB Booth 2";
   if (location.includes("Partner Theater")) return "Partner Theater";
   if (location.includes("Fontainebleau") || location.includes("NAB VIP")) return "Fontainebleau";
+  if (!location.trim() || location.includes("TwelveLabs Booth #W1923")) return "Unassigned";
   return null;
 }
 

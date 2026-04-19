@@ -1213,6 +1213,13 @@ const rawMeetings: Array<{
     date: "April 21, 2026", time: "2:00 PM", type: "meeting",
   },
   {
+    company: "Dolby Labs",
+    internal: "james.murphy@twelvelabs.io",
+    external: "",
+    location: "TwelveLabs Booth #W1923",
+    date: "April 21, 2026", time: "2:00 PM", type: "meeting",
+  },
+  {
     company: "AWS + Versant",
     internal: "soyoung@twelvelabs.io\nethan.heerwagen@twelvelabs.io",
     external: "",
