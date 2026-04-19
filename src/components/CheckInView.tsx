@@ -14,6 +14,7 @@ const DAYS = [
 
 const BOOTH_LOCATIONS = [
   { key: "all", label: "All Locations" },
+  { key: "Demo Station", label: "Demo Station" },
   { key: "NAB Booth 1", label: "NAB Booth 1" },
   { key: "NAB Booth 2", label: "NAB Booth 2" },
   { key: "Partner Theater", label: "Partner Theater" },
@@ -21,6 +22,7 @@ const BOOTH_LOCATIONS = [
 ];
 
 function getLocationCategory(location: string): string | null {
+  if (location.includes("Demo Station")) return "Demo Station";
   if (location.includes("NAB Booth 1")) return "NAB Booth 1";
   if (location.includes("NAB Booth 2")) return "NAB Booth 2";
   if (location.includes("Partner Theater")) return "Partner Theater";
