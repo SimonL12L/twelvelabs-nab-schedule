@@ -329,13 +329,6 @@ const rawMeetings: Array<{
     date: "April 19, 2026", time: "10:45 AM", type: "meeting",
   },
   {
-    company: "Disney (Mitch Jacobs) (HOLD)",
-    internal: "dan.germain@twelvelabs.io\nyoon.kim@twelvelabs.io\nsimon.lecointe@twelvelabs.io",
-    external: "",
-    location: "TwelveLabs Booth #W1923",
-    date: "April 19, 2026", time: "11:30 AM", type: "meeting",
-  },
-  {
     company: "Amagi",
     internal: "john.reigart@twelvelabs.io\nbelinda.merritt@twelvelabs.io\nnate.gustafson@twelvelabs.io",
     external: "danny.halprin@amagi.com",
@@ -348,20 +341,6 @@ const rawMeetings: Array<{
     external: "jonohow@amazon.com\nmcdonagg@amazon.com",
     location: "AWS Booth",
     date: "April 19, 2026", time: "12:15 PM", type: "meeting",
-  },
-  {
-    company: "Memnon",
-    internal: "john.reigart@twelvelabs.io\ndanny.nicolopoulos@twelvelabs.io\nbelinda.merritt@twelvelabs.io",
-    external: "heidi.shakespeare@memnon.com",
-    location: "TwelveLabs Booth #W1923 – NAB Booth 2",
-    date: "April 19, 2026", time: "12:30 PM", type: "meeting",
-  },
-  {
-    company: "ISBC",
-    internal: "belinda.merritt@twelvelabs.io",
-    external: "debby@isbc.co",
-    location: "TwelveLabs Booth #W1923 – Demo Station",
-    date: "April 19, 2026", time: "1:00 PM", type: "meeting",
   },
   {
     company: "Marvel Studios",
@@ -614,20 +593,6 @@ const rawMeetings: Array<{
     date: "April 20, 2026", time: "12:00 PM", type: "partner",
   },
   {
-    company: "Disney (HOLD)",
-    internal: "dan.germain@twelvelabs.io\nyoon.kim@twelvelabs.io\nsimon.lecointe@twelvelabs.io",
-    external: "",
-    location: "NAB VIP – Fontainebleau",
-    date: "April 20, 2026", time: "1:00 PM", type: "meeting",
-  },
-  {
-    company: "SnapStream",
-    internal: "amie.araghi@twelvelabs.io\ndavid.morel@twelvelabs.io",
-    external: "daniel@snapstream.com\ngerard@snapstream.com",
-    location: "TwelveLabs Booth #W1923 – NAB Booth 2",
-    date: "April 20, 2026", time: "1:00 PM", type: "meeting",
-  },
-  {
     company: "Sinclair",
     internal: "ethan.heerwagen@twelvelabs.io\nchad.rounsavall@twelvelabs.io\nsoyoung@twelvelabs.io",
     external: "eensign@sbgtv.com",
@@ -877,13 +842,6 @@ const rawMeetings: Array<{
     external: "dgrimstead@nomad.media\namiller@nomad.media",
     location: "Nomad Booth #W2357",
     date: "April 20, 2026", time: "2:00 PM", type: "meeting",
-  },
-  {
-    company: "TVNZ (HOLD)",
-    internal: "ethan.heerwagen@twelvelabs.io\nbrice.penven@twelvelabs.io\nchad.rounsavall@twelvelabs.io",
-    external: "",
-    location: "TwelveLabs Booth #W1923 – NAB Booth 2",
-    date: "April 20, 2026", time: "5:15 PM", type: "meeting",
   },
   {
     company: "NHK (HOLD)",
