@@ -318,7 +318,7 @@ const rawMeetings: Array<{
     company: "Nine <> AWS <> TwelveLabs",
     internal: "jae@twelvelabs.io\nethan.heerwagen@twelvelabs.io\nyoon.kim@twelvelabs.io",
     external: "",
-    location: "TwelveLabs Booth #W1923 – Demo Station",
+    location: "TwelveLabs Booth #W1923 – NAB Booth 2",
     date: "April 19, 2026", time: "10:30 AM", type: "meeting",
   },
   {
@@ -374,7 +374,7 @@ const rawMeetings: Array<{
     company: "WBD",
     internal: "juddy.talt@twelvelabs.io\nbrice.penven@twelvelabs.io\nallie.bernacchi@twelvelabs.io",
     external: "bernardo.martinez@wbd.com\nvivian.arenado@wbd.com\nben.rojas@wbd.com",
-    location: "TwelveLabs Booth #W1923",
+    location: "TwelveLabs Booth #W1923 – NAB Booth 2",
     date: "April 19, 2026", time: "5:00 PM", type: "meeting",
   },
   {
@@ -659,7 +659,7 @@ const rawMeetings: Array<{
     company: "3ABN",
     internal: "juddy.talt@twelvelabs.io\ndavid.morel@twelvelabs.io",
     external: "brad.walker@3abn.org",
-    location: "TwelveLabs Booth #W1923 – NAB Booth 2",
+    location: "TwelveLabs Booth #W1923 – Demo Station",
     date: "April 20, 2026", time: "2:30 PM", type: "meeting",
   },
   {
@@ -687,7 +687,7 @@ const rawMeetings: Array<{
     company: "AWS",
     internal: "allie.bernacchi@twelvelabs.io",
     external: "",
-    location: "AWS Booth W1701, West Hall",
+    location: "TwelveLabs Booth #W1923 – Demo Station",
     date: "April 20, 2026", time: "3:00 PM", type: "meeting",
   },
   {
