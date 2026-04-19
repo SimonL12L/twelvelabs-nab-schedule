@@ -263,14 +263,14 @@ const rawMeetings: Array<{
     company: "M&E Stage – Soyoung Speaking",
     internal: "soyoung@twelvelabs.io\nyoon.kim@twelvelabs.io\nmaninder@twelvelabs.io",
     external: "",
-    location: "M&E Stage, NAB Show",
+    location: "W1566: Media and Entertainment Theater",
     date: "April 19, 2026", time: "3:15 PM", type: "panel",
   },
   {
     company: "AWS Partner Stage Panel w/ Sardius (Jae)",
     internal: "jae@twelvelabs.io\nyoon.kim@twelvelabs.io\nmaninder@twelvelabs.io",
     external: "",
-    location: "AWS Partner Stage, NAB Show",
+    location: "AWS Partner Theater (W1333)",
     date: "April 19, 2026", time: "3:15 PM", type: "panel",
   },
   {
@@ -311,7 +311,7 @@ const rawMeetings: Array<{
   {
     company: "TwelveLabs Happy Hour / Rodeo Launch",
     internal: "", external: "",
-    location: "Las Vegas, NV",
+    location: "Azul, 2777 S Las Vegas Blvd",
     date: "April 19, 2026", time: "6:30 PM", type: "event",
   },
   {
@@ -367,7 +367,7 @@ const rawMeetings: Array<{
     company: "Marvel Studios",
     internal: "dan.germain@twelvelabs.io\njordan.woods@twelvelabs.io\nyoon.kim@twelvelabs.io",
     external: "lotis@marvelstudios.com\nkmitchell@marvelstudios.com\nmitch.jacobs@disney.com",
-    location: "TwelveLabs Booth #W1923",
+    location: "TwelveLabs Booth #W1923 – NAB Booth 1",
     date: "April 19, 2026", time: "2:00 PM", type: "meeting",
   },
   {
@@ -534,7 +534,7 @@ const rawMeetings: Array<{
     company: "Mr. Master",
     internal: "amie.araghi@twelvelabs.io",
     external: "marialaing@mrmaster.com",
-    location: "TwelveLabs Booth #W1923 – NAB Booth 1",
+    location: "TwelveLabs Booth #W1923 – Demo Station",
     date: "April 20, 2026", time: "10:00 AM", type: "meeting",
   },
   {
@@ -576,7 +576,7 @@ const rawMeetings: Array<{
     company: "Sports Summit Stage Panel w/ Scoreplay (Soyoung)",
     internal: "soyoung@twelvelabs.io\njae@twelvelabs.io\nmaninder@twelvelabs.io\nyoon.kim@twelvelabs.io",
     external: "",
-    location: "Sports Summit Stage, NAB Show",
+    location: "W3643: Sports Theater",
     date: "April 20, 2026", time: "11:15 AM", type: "panel",
   },
   {
@@ -708,7 +708,7 @@ const rawMeetings: Array<{
     company: "AWS",
     internal: "allie.bernacchi@twelvelabs.io",
     external: "",
-    location: "TwelveLabs Booth or AWS Booth",
+    location: "AWS Booth W1701, West Hall",
     date: "April 20, 2026", time: "3:00 PM", type: "meeting",
   },
   {
@@ -813,7 +813,7 @@ const rawMeetings: Array<{
     company: "Bernie Gershon VIP Exec Dinner",
     internal: "soyoung@twelvelabs.io\nmaddi.santos@twelvelabs.io\nrobert.mohr@twelvelabs.io",
     external: "",
-    location: "Las Vegas, NV",
+    location: "SW Steakhouse, 3131 Las Vegas Blvd S",
     date: "April 20, 2026", time: "6:00 PM", type: "dinner",
   },
   {
@@ -868,7 +868,7 @@ const rawMeetings: Array<{
     company: "AWS (Fenix / UK)",
     internal: "robert.mohr@twelvelabs.io\ndan.germain@twelvelabs.io",
     external: "piiber@amazon.co.uk\nhahannar@amazon.co.uk",
-    location: "TwelveLabs Booth #W1923 – NAB Booth 2",
+    location: "Opal Boardroom – Floor 2, Fontainebleau",
     date: "April 20, 2026", time: "1:00 PM", type: "meeting",
   },
   {
@@ -1007,7 +1007,7 @@ const rawMeetings: Array<{
     company: "Protege – M&E Stage Case Study (Soyoung)",
     internal: "jae@twelvelabs.io\nsoyoung@twelvelabs.io\nmaninder@twelvelabs.io\nyoon.kim@twelvelabs.io",
     external: "",
-    location: "M&E Stage, NAB Show",
+    location: "W1566: Media and Entertainment Theater",
     date: "April 21, 2026", time: "11:15 AM", type: "panel",
   },
   {
@@ -1027,7 +1027,7 @@ const rawMeetings: Array<{
     company: "Evolve Studios (HOLD)",
     internal: "juddy.talt@twelvelabs.io\ndavid.morel@twelvelabs.io",
     external: "melissafloreth@evolve.studio\nspencer@evolve.studio",
-    location: "TwelveLabs Booth #W1923 – NAB Booth 1",
+    location: "TwelveLabs Booth #W1923 – Demo Station",
     date: "April 21, 2026", time: "11:45 AM", type: "meeting",
   },
   {
@@ -1146,7 +1146,7 @@ const rawMeetings: Array<{
     company: "AWS, Wowza & UTA",
     internal: "tom@twelvelabs.io\nethan.heerwagen@twelvelabs.io\nbrice.penven@twelvelabs.io\nabby.chittams@twelvelabs.io",
     external: "jaredlw@amazon.com\nwhitatik@amazon.com",
-    location: "TwelveLabs Booth #W1923 – NAB Booth 1",
+    location: "Opal Boardroom – Floor 2, Fontainebleau",
     date: "April 21, 2026", time: "4:00 PM", type: "meeting",
   },
   {
